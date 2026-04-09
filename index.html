@@ -111,8 +111,11 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   <!-- 생활비 -->
   <div class="panel active" id="panel-living">
     <div class="big-label">남은 돈</div>
-    <div class="big-num" id="living-bal" style="color:#d4a017">0<span class="won">원</span></div>
+    <div class="big-num" id="living-bal" style="color:#1a1a1a">0<span class="won">원</span></div>
     <div class="korean-hint" id="living-korean"></div>
+    <div id="dday-wrap" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:14px;margin-top:-6px;">
+      <span id="dday-text" style="font-size:12px;color:#b8a040;font-weight:500;"></span>
+    </div>
     <div class="bar-track"><div class="bar-fill" id="living-bar" style="width:100%;background:#d4a017"></div></div>
     <div class="bar-meta">
       <span class="meta-text" id="living-goal-text"></span>
@@ -558,6 +561,19 @@ function submitMonthEnd(){
 
 // ── init ──
 load();render();
+
+// D-day: 이번달 말일까지 남은 날
+function updateDday(){
+  const now = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}));
+  const lastDay = new Date(now.getFullYear(), now.getMonth()+1, 0);
+  lastDay.setHours(23,59,59,999);
+  const diff = Math.ceil((lastDay - now) / (1000*60*60*24));
+  const el = document.getElementById("dday-text");
+  if(diff === 0) el.textContent = "d-0";
+  else el.textContent = `d-${diff}`;
+}
+updateDday();
+
 </script>
 </body>
 </html>
