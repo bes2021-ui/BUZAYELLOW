@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
 <meta charset="UTF-8"/>
@@ -8,14 +9,11 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:#1a1a1a;}
 #app{max-width:420px;margin:0 auto;min-height:100vh;padding-bottom:60px;}
-/* header */
 .header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px 14px;border-bottom:2px solid #ffe9a0;background:#fffbe6;}
 .header-title{font-size:21px;font-weight:800;color:#7a5c00;}
-/* tabs */
-.tabs{display:flex;background:#fffbe6;border-bottom:2px solid #ffe9a0;}
-.tab{flex:1;padding:12px 4px;background:transparent;border:none;color:#b8a040;font-size:12px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;}
+.tabs{display:flex;background:#fffbe6;border-bottom:2px solid #ffe9a0;overflow-x:auto;}
+.tab{flex:1;padding:12px 4px;background:transparent;border:none;color:#b8a040;font-size:11px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;min-width:60px;}
 .tab.active{color:#7a5c00;border-bottom:3px solid #d4a017;background:#fffef5;}
-/* panel */
 .panel{padding:22px 20px 20px;display:none;}
 .panel.active{display:block;}
 .big-label{font-size:11px;color:#b8a040;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
@@ -30,20 +28,17 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 .pink-btn{width:100%;background:linear-gradient(135deg,#f5c842,#d4a017);border:none;color:#5a3e00;border-radius:14px;padding:15px 0;font-size:15px;font-weight:800;cursor:pointer;margin-bottom:10px;box-shadow:0 4px 14px #f5c84244;}
 .dash-btn{width:100%;background:#fffbe6;border:2px dashed #ffd966;color:#b8a040;border-radius:12px;padding:11px 0;font-size:13px;cursor:pointer;font-weight:600;margin-bottom:20px;}
 .pill-btn{background:#f5c842;border:none;color:#5a3e00;border-radius:20px;padding:8px 16px;font-size:13px;cursor:pointer;font-weight:700;box-shadow:0 2px 8px #f5c84244;}
-/* recent */
 .recent-wrap{background:#fff;border:2px solid #ffe9a0;border-radius:16px;padding:14px 16px;}
 .recent-title{font-size:11px;color:#b8a040;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
 .recent-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #fffdf0;}
 .r-date{font-size:12px;color:#b8a040;min-width:32px;}
 .r-cat{font-size:13px;color:#888;flex:1;}
 .r-amt{font-size:13px;font-weight:800;color:#7a5c00;}
-/* cat summary */
 .cat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
 .cat-box{background:#fff;border:2px solid #ffe9a0;border-radius:14px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .cat-emoji{font-size:18px;}
 .cat-name{font-size:11px;color:#b8a040;font-weight:600;}
 .cat-amt{font-size:13px;font-weight:800;}
-/* exp list */
 .empty{text-align:center;color:#b8a040;font-size:14px;padding:40px 0;}
 .exp-row{display:flex;justify-content:space-between;align-items:center;background:#fff;border:2px solid #ffe9a0;border-radius:14px;padding:13px 14px;margin-bottom:8px;}
 .exp-left{display:flex;align-items:center;gap:10px;}
@@ -52,14 +47,18 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 .exp-date{font-size:11px;color:#b8a040;}
 .exp-amt{font-size:14px;font-weight:800;color:#7a5c00;}
 .edit-btn{background:#fffbe6;border:1px solid #ffe9a0;color:#d4a017;border-radius:8px;padding:4px 10px;font-size:11px;cursor:pointer;font-weight:700;}
-/* bonus */
 .bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
 .bonus-item{background:#fff;border:2px solid #ffe9a0;border-radius:16px;padding:20px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;}
 .bonus-icon{font-size:14px;font-weight:700;}
 .bonus-min{font-size:11px;color:#d4a017;font-weight:600;}
 .savings-note{margin-top:24px;color:#b8a040;font-size:14px;line-height:2;text-align:center;background:#fffbe6;border-radius:16px;padding:20px;border:2px solid #ffe9a0;}
+/* 결산 히스토리 */
+.history-card{background:#fff;border:2px solid #ffe9a0;border-radius:16px;padding:16px;margin-bottom:12px;}
+.history-month{font-size:13px;font-weight:800;color:#7a5c00;margin-bottom:8px;}
+.history-row{display:flex;justify-content:space-between;font-size:12px;color:#888;padding:3px 0;}
+.history-val{font-weight:700;color:#5a3e00;}
 /* modal */
-.overlay{display:none;position:fixed;inset:0;background:rgba(180,80,100,.15);align-items:flex-end;justify-content:center;z-index:100;backdrop-filter:blur(3px);}
+.overlay{display:none;position:fixed;inset:0;background:rgba(100,80,0,.12);align-items:flex-end;justify-content:center;z-index:100;backdrop-filter:blur(3px);}
 .overlay.show{display:flex;}
 .modal{background:#fff;border:2px solid #ffe9a0;border-radius:24px 24px 0 0;padding:24px 20px 36px;width:100%;max-width:420px;max-height:88vh;overflow-y:auto;}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
@@ -73,47 +72,50 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 .cat-select{display:flex;gap:8px;margin-bottom:10px;}
 .cat-btn{flex:1;background:#fffdf0;border:2px solid #ffe9a0;color:#b8a040;border-radius:12px;padding:12px 4px;font-size:13px;cursor:pointer;font-weight:700;}
 .cat-btn.active-필수{background:#d4a017;border-color:#d4a017;color:#fff;}
-.cat-btn.active-여유{background:#f5c842;border-color:#f5c842;color:#fff;}
+.cat-btn.active-여유{background:#f5c842;border-color:#f5c842;color:#5a3e00;}
 .cat-btn.active-충동{background:#f5a623;border-color:#f5a623;color:#fff;}
 .cat-hint{background:#fffdf0;border:1px solid #ffe9a0;border-radius:10px;padding:10px 14px;font-size:12px;color:#b8a040;margin-bottom:16px;font-weight:500;line-height:1.5;}
 .warn-box{background:#fff8cc;border:2px solid #ffd966;border-radius:10px;padding:10px 14px;font-size:13px;color:#cc2222;font-weight:700;margin-bottom:12px;text-align:center;}
 .preview-box{background:#fffdf0;border-radius:12px;padding:12px 14px;font-size:13px;color:#b8a040;line-height:2.2;margin-bottom:14px;white-space:pre-line;border:1px solid #ffe9a0;font-weight:600;}
-.income-types{display:flex;gap:8px;margin-bottom:16px;}
-.type-btn{flex:1;background:#fffdf0;border:2px solid #ffe9a0;color:#b8a040;border-radius:12px;padding:11px 6px;font-size:12px;cursor:pointer;font-weight:700;}
+.income-types{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
+.type-btn{flex:1;background:#fffdf0;border:2px solid #ffe9a0;color:#b8a040;border-radius:12px;padding:10px 6px;font-size:12px;cursor:pointer;font-weight:700;min-width:70px;}
 .type-btn.active{border-color:#f5c842;color:#7a5c00;background:#fffbe6;}
+/* 자동입력 힌트 */
+.autofill-hint{font-size:11px;color:#b8a040;text-align:center;margin-bottom:10px;}
+.autofill-hint span{color:#d4a017;font-weight:700;cursor:pointer;text-decoration:underline;}
+/* 추가수입 구분선 */
+.divider{border:none;border-top:1px dashed #ffe9a0;margin:16px 0;}
 .btn-row{display:flex;gap:10px;margin-top:4px;}
-.confirm-btn{flex:1;background:linear-gradient(135deg,#f5c842,#d4a017);color:#fff;border:none;border-radius:14px;padding:16px 0;font-size:15px;font-weight:800;cursor:pointer;}
+.confirm-btn{flex:1;background:linear-gradient(135deg,#f5c842,#d4a017);color:#5a3e00;border:none;border-radius:14px;padding:16px 0;font-size:15px;font-weight:800;cursor:pointer;}
 .delete-btn{flex:0 0 76px;background:#ffdddd;color:#cc2222;border:none;border-radius:14px;padding:16px 0;font-size:15px;font-weight:800;cursor:pointer;}
-/* flash */
 .flash{display:none;position:fixed;top:16px;left:50%;transform:translateX(-50%);border-radius:20px;padding:11px 22px;font-size:13px;font-weight:700;z-index:200;white-space:nowrap;}
 .flash.show{display:block;}
 </style>
 </head>
 <body>
 <div id="app">
-  <!-- flash -->
   <div class="flash" id="flash"></div>
 
-  <!-- header -->
   <div class="header">
     <span class="header-title">🌻 내 돈</span>
     <button class="pill-btn" onclick="openModal('income')">+ 수입</button>
   </div>
 
-  <!-- tabs -->
   <div class="tabs">
     <button class="tab active" onclick="switchTab('living',this)">💰 생활비</button>
     <button class="tab" onclick="switchTab('expense',this)">📋 지출</button>
     <button class="tab" onclick="switchTab('bonus',this)">🎀 보너스</button>
     <button class="tab" onclick="switchTab('savings',this)">🏦 저축</button>
+    <button class="tab" onclick="switchTab('history',this)">📅 결산</button>
   </div>
 
   <!-- 생활비 -->
+
   <div class="panel active" id="panel-living">
     <div class="big-label">남은 돈</div>
     <div class="big-num" id="living-bal" style="color:#1a1a1a">0<span class="won">원</span></div>
     <div class="korean-hint" id="living-korean"></div>
-    <div id="dday-wrap" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:14px;margin-top:-6px;">
+    <div style="display:inline-flex;align-items:center;gap:6px;margin-bottom:14px;margin-top:-6px;">
       <span id="dday-text" style="font-size:12px;color:#b8a040;font-weight:500;"></span>
     </div>
     <div class="bar-track"><div class="bar-fill" id="living-bar" style="width:100%;background:#d4a017"></div></div>
@@ -132,6 +134,7 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   </div>
 
   <!-- 지출 -->
+
   <div class="panel" id="panel-expense">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
       <div class="big-label">지출 내역</div>
@@ -142,6 +145,7 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   </div>
 
   <!-- 보너스 -->
+
   <div class="panel" id="panel-bonus">
     <div class="big-label">보너스 슬롯</div>
     <div class="big-num" id="bonus-bal" style="color:#1a1a1a">0<span class="won">원</span></div>
@@ -159,15 +163,24 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   </div>
 
   <!-- 저축 -->
+
   <div class="panel" id="panel-savings">
     <div class="big-label">저축</div>
     <div class="big-num" id="savings-bal" style="color:#1a1a1a">0<span class="won">원</span></div>
     <div class="korean-hint" id="savings-korean"></div>
     <div class="savings-note">자동으로 쌓이는 돈이에요 🔒<br>수정할 수 없어요</div>
   </div>
+
+  <!-- 결산 히스토리 -->
+
+  <div class="panel" id="panel-history">
+    <div class="big-label" style="margin-bottom:16px">월별 결산 기록</div>
+    <div id="history-list"><div class="empty">아직 결산 내역이 없어요 📅</div></div>
+  </div>
 </div>
 
 <!-- 지출 입력 모달 -->
+
 <div class="overlay" id="modal-addExp">
   <div class="modal">
     <div class="modal-header">
@@ -194,6 +207,7 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <!-- 지출 수정 모달 -->
+
 <div class="overlay" id="modal-editExp">
   <div class="modal">
     <div class="modal-header">
@@ -222,16 +236,20 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <!-- 수입 입력 모달 -->
+
 <div class="overlay" id="modal-income">
   <div class="modal">
     <div class="modal-header">
       <span class="modal-title">💸 수입 입력</span>
       <button class="close-btn" onclick="closeModal('income')">✕</button>
     </div>
+    <!-- 분배 수입 -->
+    <div class="step-label">수입 종류</div>
     <div class="income-types">
       <button class="type-btn active" id="itype-night" onclick="selectIncomeType('night')">🌙 나이트</button>
       <button class="type-btn" id="itype-duty" onclick="selectIncomeType('duty')">🏥 당직비</button>
       <button class="type-btn" id="itype-bonus-income" onclick="selectIncomeType('bonus-income')">🎁 상여금</button>
+      <button class="type-btn" id="itype-extra" onclick="selectIncomeType('extra')">➕ 추가수입</button>
     </div>
     <div class="input-row">
       <input class="main-input" id="income-input" type="text" inputmode="numeric" placeholder="0"
@@ -240,11 +258,12 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
     </div>
     <div class="korean-input" id="income-korean"></div>
     <div class="preview-box" id="income-preview" style="display:none"></div>
-    <button class="confirm-btn" onclick="submitIncome()">분배하기 🎉</button>
+    <button class="confirm-btn" id="income-confirm-btn" onclick="submitIncome()">분배하기 🎉</button>
   </div>
 </div>
 
 <!-- 보너스 차감 모달 -->
+
 <div class="overlay" id="modal-deduct-bonus">
   <div class="modal">
     <div class="modal-header">
@@ -253,15 +272,16 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
     </div>
     <div class="input-row">
       <input class="main-input" id="bonus-input" type="text" inputmode="numeric" placeholder="0"
-        oninput="onAmtInput(this,'bonus-korean')">
+        oninput="onAmtInput(this,'bonus-amt-korean')">
       <span class="input-unit">원</span>
     </div>
-    <div class="korean-input" id="bonus-korean"></div>
+    <div class="korean-input" id="bonus-amt-korean"></div>
     <button class="confirm-btn" onclick="submitDeductBonus()">차감하기</button>
   </div>
 </div>
 
 <!-- 목표 수정 모달 -->
+
 <div class="overlay" id="modal-goal">
   <div class="modal">
     <div class="modal-header">
@@ -279,6 +299,7 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <!-- 월말 정산 모달 -->
+
 <div class="overlay" id="modal-monthend">
   <div class="modal">
     <div class="modal-header">
@@ -291,21 +312,30 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <script>
-const KEY = "adhd-money-v4";
+const KEY = "adhd-money-v5";
 const HINTS = {필수:"이거 안 사면 생활에 문제 생김",여유:"이거 없어도 생활 가능",충동:"깜짝 소비, 고민 없이"};
 const COLORS = {필수:"#d4a017",여유:"#f5c842",충동:"#f5a623"};
+const AUTO_FILL = {night:600000, duty:300000, "bonus-income":0};
 
-let S = {living:{goal:1500000,balance:1500000},bonus:0,savings:0,expenses:[],incomeLog:[]};
-let expCat = "필수", editCat = "필수", editId = null, incomeType = "night";
+let S = {
+  living:{goal:1500000,balance:1500000},
+  bonus:0, savings:0,
+  expenses:[], incomeLog:[],
+  historyLog:[] // [{month, leftover, carryover, bonusAdded, newBalance, expenses:[]}]
+};
+let expCat="필수", editCat="필수", editId=null, incomeType="night";
 
-// ── utils ──
 function load(){try{const d=localStorage.getItem(KEY);if(d)S=JSON.parse(d);}catch{}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch{}}
 function fmt(n){return Math.floor(Math.abs(n)).toLocaleString("ko-KR");}
 function parseAmt(v){return Number(String(v).replace(/[^0-9]/g,""))||0;}
 function fmtInput(v){const n=v.replace(/[^0-9]/g,"");return n?Number(n).toLocaleString("ko-KR"):"";}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
-function todayKR(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;}
+function todayKR(){
+  const d=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}));
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+function nowKR(){return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}));}
 function fmtDate(s){if(!s)return "";const[,m,d]=s.split("-");return `${Number(m)}/${Number(d)}`;}
 function toKorean(n){
   const num=Math.floor(Number(n));if(!num||num<=0)return "";
@@ -315,7 +345,6 @@ function toKorean(n){
   return r+"원";
 }
 
-// ── flash ──
 let flashTimer;
 function showFlash(msg,type="ok"){
   const el=document.getElementById("flash");
@@ -328,9 +357,7 @@ function showFlash(msg,type="ok"){
   flashTimer=setTimeout(()=>el.classList.remove("show"),2200);
 }
 
-// ── render ──
 function render(){
-  // 생활비
   const bal=S.living.balance, goal=S.living.goal;
   const pct=Math.min(100,Math.max(0,(bal/goal)*100));
   const color=pct>50?"#d4a017":pct>20?"#f0a050":"#cc2222";
@@ -341,12 +368,10 @@ function render(){
   document.getElementById("living-bar").style.background=color;
   document.getElementById("living-goal-text").textContent=`목표 ${fmt(goal)}원`;
 
-  // 최근 지출
   const rw=document.getElementById("recent-wrap");
-  const rl=document.getElementById("recent-list");
   if(S.expenses.length>0){
     rw.style.display="block";
-    rl.innerHTML=S.expenses.slice(0,5).map(e=>`
+    document.getElementById("recent-list").innerHTML=S.expenses.slice(0,5).map(e=>`
       <div class="recent-row">
         <span class="r-date">${fmtDate(e.date)}</span>
         <span class="r-cat">${e.cat==="필수"?"🍚":e.cat==="여유"?"🙂":"🔥"} ${e.cat}</span>
@@ -354,18 +379,15 @@ function render(){
       </div>`).join("");
   } else { rw.style.display="none"; }
 
-  // 보너스
   document.getElementById("bonus-bal").innerHTML=`${fmt(S.bonus)}<span class="won">원</span>`;
   document.getElementById("bonus-bal").style.color="#1a1a1a";
   document.getElementById("bonus-korean").textContent=toKorean(S.bonus);
   document.getElementById("bonus-luxury").style.opacity=S.bonus<1000000?"0.4":"1";
 
-  // 저축
   document.getElementById("savings-bal").innerHTML=`${fmt(S.savings)}<span class="won">원</span>`;
   document.getElementById("savings-bal").style.color="#1a1a1a";
   document.getElementById("savings-korean").textContent=toKorean(S.savings);
 
-  // 지출 카테고리 합계
   const totals={필수:0,여유:0,충동:0};
   S.expenses.forEach(e=>{totals[e.cat]=(totals[e.cat]||0)+e.amount;});
   document.getElementById("cat-summary").innerHTML=
@@ -376,7 +398,6 @@ function render(){
         <span class="cat-amt" style="color:${COLORS[c]}">${fmt(totals[c])}원</span>
       </div>`).join("");
 
-  // 지출 목록
   const el=document.getElementById("exp-list");
   if(S.expenses.length===0){
     el.innerHTML='<div class="empty">아직 지출이 없어요 🌸</div>';
@@ -396,9 +417,27 @@ function render(){
         </div>
       </div>`).join("");
   }
+
+  // 결산 히스토리
+  const hl=document.getElementById("history-list");
+  if(!S.historyLog||S.historyLog.length===0){
+    hl.innerHTML='<div class="empty">아직 결산 내역이 없어요 📅</div>';
+  } else {
+    hl.innerHTML=[...S.historyLog].reverse().map(h=>`
+      <div class="history-card">
+        <div class="history-month">📅 ${h.month} 결산</div>
+        <div class="history-row"><span>이월 잔액 (남은 돈 70%)</span><span class="history-val">+${fmt(h.carryover)}원</span></div>
+        <div class="history-row"><span>보너스로 이동 (30%)</span><span class="history-val">${fmt(h.bonusAdded)}원</span></div>
+        <div class="history-row"><span>기본 생활비 충전</span><span class="history-val">+1,000,000원</span></div>
+        <div class="history-row" style="border-top:1px solid #ffe9a0;margin-top:6px;padding-top:6px;">
+          <span style="font-weight:700">다음달 시작 잔액</span>
+          <span class="history-val" style="font-size:14px">=${fmt(h.newBalance)}원</span>
+        </div>
+        <div class="history-row" style="margin-top:4px"><span>이달 총 지출</span><span class="history-val">${fmt(h.totalExp)}원</span></div>
+      </div>`).join("");
+  }
 }
 
-// ── tabs ──
 function switchTab(name,btn){
   document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
   document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
@@ -406,23 +445,19 @@ function switchTab(name,btn){
   document.getElementById("panel-"+name).classList.add("active");
 }
 
-// ── modal ──
 function openModal(id){document.getElementById("modal-"+id).classList.add("show");}
 function closeModal(id){document.getElementById("modal-"+id).classList.remove("show");}
-
-// overlay 클릭으로 닫기
 document.querySelectorAll(".overlay").forEach(ov=>{
   ov.addEventListener("click",function(e){if(e.target===this)this.classList.remove("show");});
 });
 
-// ── 금액 input 공통 ──
 function onAmtInput(inp,koreanId){
   inp.value=fmtInput(inp.value);
   document.getElementById(koreanId).textContent=toKorean(parseAmt(inp.value));
   if(inp.id==="exp-amount-input") checkExpWarn();
 }
 
-// ── 지출 입력 ──
+// ── 지출 ──
 function openExpModal(){
   expCat="필수";
   document.getElementById("exp-amount-input").value="";
@@ -445,8 +480,7 @@ function updateCatBtns(selectId,prefix,active){
 }
 function checkExpWarn(){
   const amt=parseAmt(document.getElementById("exp-amount-input").value);
-  const show=expCat!=="충동"&&amt>S.living.balance&&amt>0;
-  document.getElementById("exp-warn").style.display=show?"block":"none";
+  document.getElementById("exp-warn").style.display=(expCat!=="충동"&&amt>S.living.balance&&amt>0)?"block":"none";
 }
 function submitExp(){
   const amt=parseAmt(document.getElementById("exp-amount-input").value);
@@ -454,9 +488,7 @@ function submitExp(){
   if(expCat!=="충동"&&S.living.balance<amt){showFlash("잔액이 부족합니다. 💸","err");return;}
   S.living.balance-=amt;
   S.expenses.unshift({id:uid(),cat:expCat,amount:amt,date:todayKR()});
-  save();render();
-  showFlash(`-${fmt(amt)}원 기록됨 ✅`);
-  closeModal("addExp");
+  save();render();showFlash(`-${fmt(amt)}원 기록됨 ✅`);closeModal("addExp");
 }
 
 // ── 지출 수정 ──
@@ -486,17 +518,33 @@ function submitDelete(){
   save();render();showFlash("삭제됐어요 🗑");closeModal("editExp");
 }
 
-// ── 수입 ──
+// ── 수입 (자동입력 포함) ──
 function selectIncomeType(t){
   incomeType=t;
   document.querySelectorAll(".type-btn").forEach(b=>b.classList.remove("active"));
   document.getElementById("itype-"+t).classList.add("active");
+
+  // 나이트/당직비 선택 시 금액 자동 기입
+  const autoAmt = t==="night"?600000 : t==="duty"?300000 : 0;
+  if(autoAmt>0){
+    document.getElementById("income-input").value=fmt(autoAmt);
+    document.getElementById("income-korean").textContent=toKorean(autoAmt);
+  } else {
+    document.getElementById("income-input").value="";
+    document.getElementById("income-korean").textContent="";
+  }
+
+  // 추가수입 모드면 버튼 텍스트 변경
+  const btn=document.getElementById("income-confirm-btn");
+  if(t==="extra") btn.textContent="생활비에 추가 ➕";
+  else btn.textContent="분배하기 🎉";
+
   updateIncomePreview();
 }
 function updateIncomePreview(){
   const amt=parseAmt(document.getElementById("income-input").value);
   const box=document.getElementById("income-preview");
-  if(!amt){box.style.display="none";return;}
+  if(!amt||incomeType==="extra"){box.style.display="none";return;}
   let txt="";
   if(incomeType==="night") txt=`보너스 ${fmt(amt*.5)}원\n저축 ${fmt(amt*.3)}원\n생활비 ${fmt(amt*.2)}원`;
   else if(incomeType==="duty") txt=`보너스 ${fmt(amt*.5)}원\n생활비 ${fmt(amt*.5)}원`;
@@ -505,6 +553,19 @@ function updateIncomePreview(){
 }
 function submitIncome(){
   const amt=parseAmt(document.getElementById("income-input").value);if(!amt)return;
+
+  // 추가수입 모드
+  if(incomeType==="extra"){
+    S.living.balance+=amt;
+    S.incomeLog.unshift({type:"추가 수입",amount:amt,at:Date.now()});
+    if(S.incomeLog.length>20)S.incomeLog.pop();
+    save();render();showFlash(`+${fmt(amt)}원 생활비에 추가됐어요 ➕`);
+    document.getElementById("income-input").value="";
+    document.getElementById("income-korean").textContent="";
+    closeModal("income");
+    return;
+  }
+
   let b=0,sv=0,lv=0,label="";
   if(incomeType==="night")     {b=amt*.5;sv=amt*.3;lv=amt*.2;label="나이트 수당";}
   else if(incomeType==="duty") {b=amt*.5;lv=amt*.5;label="당직비";}
@@ -512,10 +573,11 @@ function submitIncome(){
   S.living.balance+=lv;S.bonus+=b;S.savings+=sv;
   S.incomeLog.unshift({type:label,amount:amt,at:Date.now()});
   if(S.incomeLog.length>20)S.incomeLog.pop();
-  save();render();showFlash(`+${fmt(amt)}원 분배 완료 🎉`);closeModal("income");
+  save();render();showFlash(`+${fmt(amt)}원 분배 완료 🎉`);
   document.getElementById("income-input").value="";
   document.getElementById("income-korean").textContent="";
   document.getElementById("income-preview").style.display="none";
+  closeModal("income");
 }
 
 // ── 보너스 차감 ──
@@ -548,32 +610,57 @@ function submitGoal(){
 
 // ── 월말 정산 ──
 function openMonthEnd(){
+  const now=nowKR();
+  const monthStr=`${now.getFullYear()}년 ${now.getMonth()+1}월`;
   const left=Math.max(0,S.living.balance);
+  const carryover=Math.floor(left*.7);
+  const bonusAdd=Math.floor(left*.3);
+  const newBal=carryover+1000000; // 이월 + 기본 100만원 충전
+  const totalExp=S.expenses.reduce((a,e)=>a+e.amount,0);
   document.getElementById("monthend-preview").textContent=
-    `남은 ${fmt(left)}원 중\n✅ 70%  →  ${fmt(left*.7)}원  다음달 생활비\n🎀 30%  →  ${fmt(left*.3)}원  보너스 슬롯`;
+    `${monthStr} 결산\n\n남은 ${fmt(left)}원 중\n✅ 이월 70%  →  ${fmt(carryover)}원\n🎀 보너스 30%  →  ${fmt(bonusAdd)}원\n\n💰 기본 생활비 충전  +1,000,000원\n─────────────────\n다음달 시작: ${fmt(newBal)}원`;
   openModal("monthend");
 }
 function submitMonthEnd(){
+  const now=nowKR();
+  const monthStr=`${now.getFullYear()}년 ${now.getMonth()+1}월`;
   const left=Math.max(0,S.living.balance);
-  S.living.balance=left*.7;S.bonus+=left*.3;
+  const carryover=Math.floor(left*.7);
+  const bonusAdd=Math.floor(left*.3);
+  const newBal=carryover+1000000;
+  const totalExp=S.expenses.reduce((a,e)=>a+e.amount,0);
+
+  // 결산 기록 저장
+  if(!S.historyLog)S.historyLog=[];
+  S.historyLog.push({
+    month:monthStr,
+    leftover:left,
+    carryover,
+    bonusAdded:bonusAdd,
+    newBalance:newBal,
+    totalExp
+  });
+
+  // 리셋
+  S.living.balance=newBal;
+  S.bonus+=bonusAdd;
+  S.expenses=[];  // 지출내역 초기화
+
   save();render();showFlash("월말정산 완료! 🎊");closeModal("monthend");
 }
 
-// ── init ──
-load();render();
-
-// D-day: 이번달 말일까지 남은 날
+// ── D-day ──
 function updateDday(){
-  const now = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}));
-  const lastDay = new Date(now.getFullYear(), now.getMonth()+1, 0);
+  const now=nowKR();
+  const lastDay=new Date(now.getFullYear(),now.getMonth()+1,0);
   lastDay.setHours(23,59,59,999);
-  const diff = Math.ceil((lastDay - now) / (1000*60*60*24));
-  const el = document.getElementById("dday-text");
-  if(diff === 0) el.textContent = "d-0";
-  else el.textContent = `d-${diff}`;
+  const diff=Math.ceil((lastDay-now)/(1000*60*60*24));
+  document.getElementById("dday-text").textContent=diff===0?"d-0":`d-${diff}`;
 }
-updateDday();
 
+// ── init ──
+load();render();updateDday();
 </script>
+
 </body>
 </html>
