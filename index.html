@@ -3,89 +3,89 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-<title>🌻 내 돈</title>
+<title>🍵 내 돈</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:#1a1a1a;}
+body{background:#f4f8f1;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:#1a1a1a;}
 #app{max-width:420px;margin:0 auto;min-height:100vh;padding-bottom:60px;}
-.header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px 14px;border-bottom:2px solid #ffe9a0;background:#fffbe6;}
-.header-title{font-size:21px;font-weight:800;color:#7a5c00;}
-.tabs{display:flex;background:#fffbe6;border-bottom:2px solid #ffe9a0;overflow-x:auto;}
-.tab{flex:1;padding:12px 4px;background:transparent;border:none;color:#b8a040;font-size:11px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;min-width:60px;}
-.tab.active{color:#7a5c00;border-bottom:3px solid #d4a017;background:#fffef5;}
+.header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px 14px;border-bottom:2px solid #bfd8a8;background:#ebf3e5;}
+.header-title{font-size:21px;font-weight:800;color:#3d5c28;}
+.tabs{display:flex;background:#ebf3e5;border-bottom:2px solid #bfd8a8;overflow-x:auto;}
+.tab{flex:1;padding:12px 4px;background:transparent;border:none;color:#6e9442;font-size:11px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;min-width:60px;}
+.tab.active{color:#3d5c28;border-bottom:3px solid #5c8c28;background:#f4f8f1;}
 .panel{padding:22px 20px 20px;display:none;}
 .panel.active{display:block;}
-.big-label{font-size:11px;color:#b8a040;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
+.big-label{font-size:11px;color:#6e9442;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;font-weight:600;}
 .big-num{font-size:48px;font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:2px;}
 .won{font-size:20px;font-weight:600;margin-left:3px;opacity:.6;}
-.korean-hint{font-size:12px;color:#b8a040;margin-bottom:16px;font-weight:500;min-height:16px;}
-.bar-track{height:8px;background:#ffe9a0;border-radius:99px;overflow:hidden;margin-bottom:8px;}
+.korean-hint{font-size:12px;color:#6e9442;margin-bottom:16px;font-weight:500;min-height:16px;}
+.bar-track{height:8px;background:#bfd8a8;border-radius:99px;overflow:hidden;margin-bottom:8px;}
 .bar-fill{height:100%;border-radius:99px;transition:width .5s;}
 .bar-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
-.meta-text{font-size:12px;color:#b8a040;}
-.link-btn{background:transparent;border:none;color:#d4a017;font-size:12px;cursor:pointer;text-decoration:underline;font-weight:600;}
-.pink-btn{width:100%;background:linear-gradient(135deg,#f5c842,#d4a017);border:none;color:#5a3e00;border-radius:14px;padding:15px 0;font-size:15px;font-weight:800;cursor:pointer;margin-bottom:10px;box-shadow:0 4px 14px #f5c84244;}
-.dash-btn{width:100%;background:#fffbe6;border:2px dashed #ffd966;color:#b8a040;border-radius:12px;padding:11px 0;font-size:13px;cursor:pointer;font-weight:600;margin-bottom:20px;}
-.pill-btn{background:#f5c842;border:none;color:#5a3e00;border-radius:20px;padding:8px 16px;font-size:13px;cursor:pointer;font-weight:700;box-shadow:0 2px 8px #f5c84244;}
-.recent-wrap{background:#fff;border:2px solid #ffe9a0;border-radius:16px;padding:14px 16px;}
-.recent-title{font-size:11px;color:#b8a040;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
-.recent-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #fffdf0;}
-.r-date{font-size:12px;color:#b8a040;min-width:32px;}
+.meta-text{font-size:12px;color:#6e9442;}
+.link-btn{background:transparent;border:none;color:#5c8c28;font-size:12px;cursor:pointer;text-decoration:underline;font-weight:600;}
+.pink-btn{width:100%;background:linear-gradient(135deg,#9aba70,#6a9840);border:none;color:#2a4410;border-radius:14px;padding:15px 0;font-size:15px;font-weight:800;cursor:pointer;margin-bottom:10px;box-shadow:0 4px 14px #7faa5244;}
+.dash-btn{width:100%;background:#ebf3e5;border:2px dashed #a8c878;color:#6e9442;border-radius:12px;padding:11px 0;font-size:13px;cursor:pointer;font-weight:600;margin-bottom:20px;}
+.pill-btn{background:#7faa52;border:none;color:#2a4410;border-radius:20px;padding:8px 16px;font-size:13px;cursor:pointer;font-weight:700;box-shadow:0 2px 8px #7faa5244;}
+.recent-wrap{background:#fff;border:2px solid #bfd8a8;border-radius:16px;padding:14px 16px;}
+.recent-title{font-size:11px;color:#6e9442;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.recent-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #f4f8f1;}
+.r-date{font-size:12px;color:#6e9442;min-width:32px;}
 .r-cat{font-size:13px;color:#888;flex:1;}
-.r-amt{font-size:13px;font-weight:800;color:#7a5c00;}
+.r-amt{font-size:13px;font-weight:800;color:#3d5c28;}
 .cat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
-.cat-box{background:#fff;border:2px solid #ffe9a0;border-radius:14px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.cat-box{background:#fff;border:2px solid #bfd8a8;border-radius:14px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .cat-emoji{font-size:18px;}
-.cat-name{font-size:11px;color:#b8a040;font-weight:600;}
+.cat-name{font-size:11px;color:#6e9442;font-weight:600;}
 .cat-amt{font-size:13px;font-weight:800;}
-.empty{text-align:center;color:#b8a040;font-size:14px;padding:40px 0;}
-.exp-row{display:flex;justify-content:space-between;align-items:center;background:#fff;border:2px solid #ffe9a0;border-radius:14px;padding:13px 14px;margin-bottom:8px;}
+.empty{text-align:center;color:#6e9442;font-size:14px;padding:40px 0;}
+.exp-row{display:flex;justify-content:space-between;align-items:center;background:#fff;border:2px solid #bfd8a8;border-radius:14px;padding:13px 14px;margin-bottom:8px;}
 .exp-left{display:flex;align-items:center;gap:10px;}
 .exp-emoji{font-size:22px;}
 .exp-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;}
-.exp-date{font-size:11px;color:#b8a040;}
-.exp-amt{font-size:14px;font-weight:800;color:#7a5c00;}
-.edit-btn{background:#fffbe6;border:1px solid #ffe9a0;color:#d4a017;border-radius:8px;padding:4px 10px;font-size:11px;cursor:pointer;font-weight:700;}
+.exp-date{font-size:11px;color:#6e9442;}
+.exp-amt{font-size:14px;font-weight:800;color:#3d5c28;}
+.edit-btn{background:#ebf3e5;border:1px solid #bfd8a8;color:#5c8c28;border-radius:8px;padding:4px 10px;font-size:11px;cursor:pointer;font-weight:700;}
 .bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
-.bonus-item{background:#fff;border:2px solid #ffe9a0;border-radius:16px;padding:20px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.bonus-item{background:#fff;border:2px solid #bfd8a8;border-radius:16px;padding:20px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;}
 .bonus-icon{font-size:14px;font-weight:700;}
-.bonus-min{font-size:11px;color:#d4a017;font-weight:600;}
-.savings-note{margin-top:24px;color:#b8a040;font-size:14px;line-height:2;text-align:center;background:#fffbe6;border-radius:16px;padding:20px;border:2px solid #ffe9a0;}
+.bonus-min{font-size:11px;color:#5c8c28;font-weight:600;}
+.savings-note{margin-top:24px;color:#6e9442;font-size:14px;line-height:2;text-align:center;background:#ebf3e5;border-radius:16px;padding:20px;border:2px solid #bfd8a8;}
 /* 결산 히스토리 */
-.history-card{background:#fff;border:2px solid #ffe9a0;border-radius:16px;padding:16px;margin-bottom:12px;}
-.history-month{font-size:13px;font-weight:800;color:#7a5c00;margin-bottom:8px;}
+.history-card{background:#fff;border:2px solid #bfd8a8;border-radius:16px;padding:16px;margin-bottom:12px;}
+.history-month{font-size:13px;font-weight:800;color:#3d5c28;margin-bottom:8px;}
 .history-row{display:flex;justify-content:space-between;font-size:12px;color:#888;padding:3px 0;}
-.history-val{font-weight:700;color:#5a3e00;}
+.history-val{font-weight:700;color:#2a4410;}
 /* modal */
 .overlay{display:none;position:fixed;inset:0;background:rgba(100,80,0,.12);align-items:flex-end;justify-content:center;z-index:100;backdrop-filter:blur(3px);}
 .overlay.show{display:flex;}
-.modal{background:#fff;border:2px solid #ffe9a0;border-radius:24px 24px 0 0;padding:24px 20px 36px;width:100%;max-width:420px;max-height:88vh;overflow-y:auto;}
+.modal{background:#fff;border:2px solid #bfd8a8;border-radius:24px 24px 0 0;padding:24px 20px 36px;width:100%;max-width:420px;max-height:88vh;overflow-y:auto;}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
-.modal-title{font-size:16px;font-weight:800;color:#7a5c00;}
-.close-btn{background:#fffbe6;border:none;color:#d4a017;font-size:15px;cursor:pointer;border-radius:8px;width:30px;height:30px;font-weight:700;}
-.step-label{font-size:12px;color:#b8a040;font-weight:700;letter-spacing:.05em;margin-bottom:8px;margin-top:4px;}
+.modal-title{font-size:16px;font-weight:800;color:#3d5c28;}
+.close-btn{background:#ebf3e5;border:none;color:#5c8c28;font-size:15px;cursor:pointer;border-radius:8px;width:30px;height:30px;font-weight:700;}
+.step-label{font-size:12px;color:#6e9442;font-weight:700;letter-spacing:.05em;margin-bottom:8px;margin-top:4px;}
 .input-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-.main-input{flex:1;background:#fffdf0;border:2px solid #ffe9a0;border-radius:12px;color:#1a1a1a;font-size:30px;font-weight:800;padding:13px 14px;outline:none;width:100%;}
-.input-unit{color:#b8a040;font-size:14px;font-weight:600;}
-.korean-input{font-size:12px;color:#b8a040;font-weight:500;padding-left:4px;margin-bottom:14px;min-height:16px;}
+.main-input{flex:1;background:#f4f8f1;border:2px solid #bfd8a8;border-radius:12px;color:#1a1a1a;font-size:30px;font-weight:800;padding:13px 14px;outline:none;width:100%;}
+.input-unit{color:#6e9442;font-size:14px;font-weight:600;}
+.korean-input{font-size:12px;color:#6e9442;font-weight:500;padding-left:4px;margin-bottom:14px;min-height:16px;}
 .cat-select{display:flex;gap:8px;margin-bottom:10px;}
-.cat-btn{flex:1;background:#fffdf0;border:2px solid #ffe9a0;color:#b8a040;border-radius:12px;padding:12px 4px;font-size:13px;cursor:pointer;font-weight:700;}
-.cat-btn.active-필수{background:#d4a017;border-color:#d4a017;color:#fff;}
-.cat-btn.active-여유{background:#f5c842;border-color:#f5c842;color:#5a3e00;}
-.cat-btn.active-충동{background:#f5a623;border-color:#f5a623;color:#fff;}
-.cat-hint{background:#fffdf0;border:1px solid #ffe9a0;border-radius:10px;padding:10px 14px;font-size:12px;color:#b8a040;margin-bottom:16px;font-weight:500;line-height:1.5;}
-.warn-box{background:#fff8cc;border:2px solid #ffd966;border-radius:10px;padding:10px 14px;font-size:13px;color:#cc2222;font-weight:700;margin-bottom:12px;text-align:center;}
-.preview-box{background:#fffdf0;border-radius:12px;padding:12px 14px;font-size:13px;color:#b8a040;line-height:2.2;margin-bottom:14px;white-space:pre-line;border:1px solid #ffe9a0;font-weight:600;}
+.cat-btn{flex:1;background:#f4f8f1;border:2px solid #bfd8a8;color:#6e9442;border-radius:12px;padding:12px 4px;font-size:13px;cursor:pointer;font-weight:700;}
+.cat-btn.active-필수{background:#5c8c28;border-color:#5c8c28;color:#fff;}
+.cat-btn.active-여유{background:#7faa52;border-color:#7faa52;color:#2a4410;}
+.cat-btn.active-충동{background:#e07b2a;border-color:#e07b2a;color:#fff;}
+.cat-hint{background:#f4f8f1;border:1px solid #bfd8a8;border-radius:10px;padding:10px 14px;font-size:12px;color:#6e9442;margin-bottom:16px;font-weight:500;line-height:1.5;}
+.warn-box{background:#eaf3e0;border:2px solid #a8c878;border-radius:10px;padding:10px 14px;font-size:13px;color:#cc2222;font-weight:700;margin-bottom:12px;text-align:center;}
+.preview-box{background:#f4f8f1;border-radius:12px;padding:12px 14px;font-size:13px;color:#6e9442;line-height:2.2;margin-bottom:14px;white-space:pre-line;border:1px solid #bfd8a8;font-weight:600;}
 .income-types{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
-.type-btn{flex:1;background:#fffdf0;border:2px solid #ffe9a0;color:#b8a040;border-radius:12px;padding:10px 6px;font-size:12px;cursor:pointer;font-weight:700;min-width:70px;}
-.type-btn.active{border-color:#f5c842;color:#7a5c00;background:#fffbe6;}
+.type-btn{flex:1;background:#f4f8f1;border:2px solid #bfd8a8;color:#6e9442;border-radius:12px;padding:10px 6px;font-size:12px;cursor:pointer;font-weight:700;min-width:70px;}
+.type-btn.active{border-color:#7faa52;color:#3d5c28;background:#ebf3e5;}
 /* 자동입력 힌트 */
-.autofill-hint{font-size:11px;color:#b8a040;text-align:center;margin-bottom:10px;}
-.autofill-hint span{color:#d4a017;font-weight:700;cursor:pointer;text-decoration:underline;}
+.autofill-hint{font-size:11px;color:#6e9442;text-align:center;margin-bottom:10px;}
+.autofill-hint span{color:#5c8c28;font-weight:700;cursor:pointer;text-decoration:underline;}
 /* 추가수입 구분선 */
-.divider{border:none;border-top:1px dashed #ffe9a0;margin:16px 0;}
+.divider{border:none;border-top:1px dashed #bfd8a8;margin:16px 0;}
 .btn-row{display:flex;gap:10px;margin-top:4px;}
-.confirm-btn{flex:1;background:linear-gradient(135deg,#f5c842,#d4a017);color:#5a3e00;border:none;border-radius:14px;padding:16px 0;font-size:15px;font-weight:800;cursor:pointer;}
+.confirm-btn{flex:1;background:linear-gradient(135deg,#9aba70,#6a9840);color:#2a4410;border:none;border-radius:14px;padding:16px 0;font-size:15px;font-weight:800;cursor:pointer;}
 .delete-btn{flex:0 0 76px;background:#ffdddd;color:#cc2222;border:none;border-radius:14px;padding:16px 0;font-size:15px;font-weight:800;cursor:pointer;}
 .flash{display:none;position:fixed;top:16px;left:50%;transform:translateX(-50%);border-radius:20px;padding:11px 22px;font-size:13px;font-weight:700;z-index:200;white-space:nowrap;}
 .flash.show{display:block;}
@@ -96,7 +96,7 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   <div class="flash" id="flash"></div>
 
   <div class="header">
-    <span class="header-title">🌻 내 돈</span>
+    <span class="header-title">🍵 내 돈</span>
     <button class="pill-btn" onclick="openModal('income')">+ 수입</button>
   </div>
 
@@ -114,9 +114,9 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
     <div class="big-num" id="living-bal" style="color:#1a1a1a">0<span class="won">원</span></div>
     <div class="korean-hint" id="living-korean"></div>
     <div style="display:inline-flex;align-items:center;gap:6px;margin-bottom:14px;margin-top:-6px;">
-      <span id="dday-text" style="font-size:12px;color:#b8a040;font-weight:500;"></span>
+      <span id="dday-text" style="font-size:12px;color:#6e9442;font-weight:500;"></span>
     </div>
-    <div class="bar-track"><div class="bar-fill" id="living-bar" style="width:100%;background:#d4a017"></div></div>
+    <div class="bar-track"><div class="bar-fill" id="living-bar" style="width:100%;background:#5c8c28"></div></div>
     <div class="bar-meta">
       <span class="meta-text" id="living-goal-text"></span>
       <button class="link-btn" onclick="openGoalModal()">수정</button>
@@ -301,7 +301,7 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 <script>
 const KEY = "adhd-money-v5";
 const HINTS = {필수:"이거 안 사면 생활에 문제 생김",여유:"이거 없어도 생활 가능",충동:"깜짝 소비, 고민 없이"};
-const COLORS = {필수:"#d4a017",여유:"#f5c842",충동:"#f5a623"};
+const COLORS = {필수:"#5c8c28",여유:"#7faa52",충동:"#e07b2a"};
 const AUTO_FILL = {night:600000, duty:300000, "bonus-income":0};
 
 let S = {
@@ -336,9 +336,9 @@ let flashTimer;
 function showFlash(msg,type="ok"){
   const el=document.getElementById("flash");
   el.textContent=msg;
-  el.style.background=type==="err"?"#fff8cc":"#fffbe6";
-  el.style.color=type==="err"?"#cc2222":"#b8860b";
-  el.style.border=`2px solid ${type==="err"?"#ffd966":"#f5c842"}`;
+  el.style.background=type==="err"?"#eaf3e0":"#ebf3e5";
+  el.style.color=type==="err"?"#cc2222":"#4e7e1a";
+  el.style.border=`2px solid ${type==="err"?"#a8c878":"#7faa52"}`;
   el.classList.add("show");
   clearTimeout(flashTimer);
   flashTimer=setTimeout(()=>el.classList.remove("show"),2200);
@@ -347,7 +347,7 @@ function showFlash(msg,type="ok"){
 function render(){
   const bal=S.living.balance, goal=S.living.goal;
   const pct=Math.min(100,Math.max(0,(bal/goal)*100));
-  const color=bal<0?"#cc2222":pct>50?"#d4a017":pct>20?"#f0a050":"#cc2222";
+  const color=bal<0?"#cc2222":pct>50?"#5c8c28":pct>20?"#f0a050":"#cc2222";
   const balDisplay = bal<0 ? `-${fmt(Math.abs(bal))}` : fmt(bal);
   document.getElementById("living-bal").innerHTML=`${balDisplay}<span class="won">원</span>`;
   document.getElementById("living-bal").style.color=bal<0?"#cc2222":"#1a1a1a";
@@ -416,10 +416,10 @@ function render(){
         <div class="history-month">📅 ${h.month} 결산</div>
         <div class="history-row">
           <span>이월 잔액</span>
-          <span class="history-val" style="color:${h.carryover<0?'#cc2222':'#5a3e00'}">${h.carryover<0?"▼ -":"▲ +"}${fmt(Math.abs(h.carryover))}원</span>
+          <span class="history-val" style="color:${h.carryover<0?'#cc2222':'#2a4410'}">${h.carryover<0?"▼ -":"▲ +"}${fmt(Math.abs(h.carryover))}원</span>
         </div>
         <div class="history-row"><span>목표금액 충전</span><span class="history-val">+${fmt(S.living.goal)}원</span></div>
-        <div class="history-row" style="border-top:1px solid #ffe9a0;margin-top:6px;padding-top:6px;">
+        <div class="history-row" style="border-top:1px solid #bfd8a8;margin-top:6px;padding-top:6px;">
           <span style="font-weight:700">다음달 시작 잔액</span>
           <span class="history-val" style="font-size:14px">=${fmt(h.newBalance)}원</span>
         </div>
