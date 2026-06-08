@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
 <meta charset="UTF-8"/>
@@ -110,7 +109,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   </div>
 
   <!-- 생활비 -->
-
   <div class="panel active" id="panel-living">
     <div class="big-label">남은 돈</div>
     <div class="big-num" id="living-bal" style="color:#1a1a1a">0<span class="won">원</span></div>
@@ -134,7 +132,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   </div>
 
   <!-- 지출 -->
-
   <div class="panel" id="panel-expense">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
       <div class="big-label">지출 내역</div>
@@ -145,7 +142,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   </div>
 
   <!-- 보너스 -->
-
   <div class="panel" id="panel-bonus">
     <div class="big-label">보너스 슬롯</div>
     <div class="big-num" id="bonus-bal" style="color:#1a1a1a">0<span class="won">원</span></div>
@@ -163,7 +159,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   </div>
 
   <!-- 저축 -->
-
   <div class="panel" id="panel-savings">
     <div class="big-label">저축</div>
     <div class="big-num" id="savings-bal" style="color:#1a1a1a">0<span class="won">원</span></div>
@@ -172,7 +167,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
   </div>
 
   <!-- 결산 히스토리 -->
-
   <div class="panel" id="panel-history">
     <div class="big-label" style="margin-bottom:16px">월별 결산 기록</div>
     <div id="history-list"><div class="empty">아직 결산 내역이 없어요 📅</div></div>
@@ -180,7 +174,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <!-- 지출 입력 모달 -->
-
 <div class="overlay" id="modal-addExp">
   <div class="modal">
     <div class="modal-header">
@@ -201,13 +194,11 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
       <button class="cat-btn" onclick="selectCat(this,'충동','exp')">🔥 충동</button>
     </div>
     <div class="cat-hint" id="exp-cat-hint">💬 이거 안 사면 생활에 문제 생김</div>
-    <div class="warn-box" id="exp-warn" style="display:none">잔액이 부족합니다. 💸</div>
     <button class="confirm-btn" onclick="submitExp()">기록하기 ✅</button>
   </div>
 </div>
 
 <!-- 지출 수정 모달 -->
-
 <div class="overlay" id="modal-editExp">
   <div class="modal">
     <div class="modal-header">
@@ -236,7 +227,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <!-- 수입 입력 모달 -->
-
 <div class="overlay" id="modal-income">
   <div class="modal">
     <div class="modal-header">
@@ -263,7 +253,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <!-- 보너스 차감 모달 -->
-
 <div class="overlay" id="modal-deduct-bonus">
   <div class="modal">
     <div class="modal-header">
@@ -281,7 +270,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <!-- 목표 수정 모달 -->
-
 <div class="overlay" id="modal-goal">
   <div class="modal">
     <div class="modal-header">
@@ -299,7 +287,6 @@ body{background:#fffdf0;font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-se
 </div>
 
 <!-- 월말 정산 모달 -->
-
 <div class="overlay" id="modal-monthend">
   <div class="modal">
     <div class="modal-header">
@@ -360,10 +347,11 @@ function showFlash(msg,type="ok"){
 function render(){
   const bal=S.living.balance, goal=S.living.goal;
   const pct=Math.min(100,Math.max(0,(bal/goal)*100));
-  const color=pct>50?"#d4a017":pct>20?"#f0a050":"#cc2222";
-  document.getElementById("living-bal").innerHTML=`${fmt(bal)}<span class="won">원</span>`;
-  document.getElementById("living-bal").style.color="#1a1a1a";
-  document.getElementById("living-korean").textContent=toKorean(bal);
+  const color=bal<0?"#cc2222":pct>50?"#d4a017":pct>20?"#f0a050":"#cc2222";
+  const balDisplay = bal<0 ? `-${fmt(Math.abs(bal))}` : fmt(bal);
+  document.getElementById("living-bal").innerHTML=`${balDisplay}<span class="won">원</span>`;
+  document.getElementById("living-bal").style.color=bal<0?"#cc2222":"#1a1a1a";
+  document.getElementById("living-korean").textContent=bal<0?`초과 사용 ${toKorean(Math.abs(bal))}`:toKorean(bal);
   document.getElementById("living-bar").style.width=pct+"%";
   document.getElementById("living-bar").style.background=color;
   document.getElementById("living-goal-text").textContent=`목표 ${fmt(goal)}원`;
@@ -426,9 +414,11 @@ function render(){
     hl.innerHTML=[...S.historyLog].reverse().map(h=>`
       <div class="history-card">
         <div class="history-month">📅 ${h.month} 결산</div>
-        <div class="history-row"><span>이월 잔액 (남은 돈 70%)</span><span class="history-val">+${fmt(h.carryover)}원</span></div>
-        <div class="history-row"><span>보너스로 이동 (30%)</span><span class="history-val">${fmt(h.bonusAdded)}원</span></div>
-        <div class="history-row"><span>기본 생활비 충전</span><span class="history-val">+1,000,000원</span></div>
+        <div class="history-row">
+          <span>이월 잔액</span>
+          <span class="history-val" style="color:${h.carryover<0?'#cc2222':'#5a3e00'}">${h.carryover<0?"▼ -":"▲ +"}${fmt(Math.abs(h.carryover))}원</span>
+        </div>
+        <div class="history-row"><span>목표금액 충전</span><span class="history-val">+${fmt(S.living.goal)}원</span></div>
         <div class="history-row" style="border-top:1px solid #ffe9a0;margin-top:6px;padding-top:6px;">
           <span style="font-weight:700">다음달 시작 잔액</span>
           <span class="history-val" style="font-size:14px">=${fmt(h.newBalance)}원</span>
@@ -462,7 +452,6 @@ function openExpModal(){
   expCat="필수";
   document.getElementById("exp-amount-input").value="";
   document.getElementById("exp-korean").textContent="";
-  document.getElementById("exp-warn").style.display="none";
   updateCatBtns("exp-cat-select","exp",expCat);
   document.getElementById("exp-cat-hint").textContent="💬 "+HINTS[expCat];
   openModal("addExp");
@@ -478,14 +467,10 @@ function updateCatBtns(selectId,prefix,active){
     if(b.textContent.includes(active==="필수"?"필수":active==="여유"?"여유":"충동"))b.classList.add("active-"+active);
   });
 }
-function checkExpWarn(){
-  const amt=parseAmt(document.getElementById("exp-amount-input").value);
-  document.getElementById("exp-warn").style.display=(expCat!=="충동"&&amt>S.living.balance&&amt>0)?"block":"none";
-}
+function checkExpWarn(){}
 function submitExp(){
   const amt=parseAmt(document.getElementById("exp-amount-input").value);
   if(!amt)return;
-  if(expCat!=="충동"&&S.living.balance<amt){showFlash("잔액이 부족합니다. 💸","err");return;}
   S.living.balance-=amt;
   S.expenses.unshift({id:uid(),cat:expCat,amount:amt,date:todayKR()});
   save();render();showFlash(`-${fmt(amt)}원 기록됨 ✅`);closeModal("addExp");
@@ -506,7 +491,6 @@ function submitEdit(){
   if(!newAmt)return;
   const old=S.expenses.find(e=>e.id===editId);if(!old)return;
   const diff=newAmt-old.amount;
-  if(editCat!=="충동"&&diff>0&&S.living.balance<diff){showFlash("잔액이 부족합니다. 💸","err");return;}
   S.living.balance-=diff;
   S.expenses=S.expenses.map(e=>e.id===editId?{...e,cat:editCat,amount:newAmt}:e);
   save();render();showFlash("수정됐어요 ✏️");closeModal("editExp");
@@ -612,39 +596,41 @@ function submitGoal(){
 function openMonthEnd(){
   const now=nowKR();
   const monthStr=`${now.getFullYear()}년 ${now.getMonth()+1}월`;
-  const left=Math.max(0,S.living.balance);
-  const carryover=Math.floor(left*.7);
-  const bonusAdd=Math.floor(left*.3);
-  const newBal=carryover+1000000; // 이월 + 기본 100만원 충전
+  const left=S.living.balance; // 마이너스도 그대로
+  const goal=S.living.goal;
+  const newBal=left+goal; // 잔액 그대로 이월 + 목표금액 충전
   const totalExp=S.expenses.reduce((a,e)=>a+e.amount,0);
-  document.getElementById("monthend-preview").textContent=
-    `${monthStr} 결산\n\n남은 ${fmt(left)}원 중\n✅ 이월 70%  →  ${fmt(carryover)}원\n🎀 보너스 30%  →  ${fmt(bonusAdd)}원\n\n💰 기본 생활비 충전  +1,000,000원\n─────────────────\n다음달 시작: ${fmt(newBal)}원`;
+
+  let previewTxt=`${monthStr} 결산\n\n`;
+  previewTxt+=`현재 잔액  ${left<0?"▼ -":"▲ +"}${fmt(Math.abs(left))}원\n`;
+  previewTxt+=`목표금액 충전  +${fmt(goal)}원\n`;
+  previewTxt+=`─────────────────\n`;
+  previewTxt+=`다음달 시작: ${fmt(newBal)}원`;
+  if(left<0) previewTxt+=`\n\n⚠️ 이번달 ${fmt(Math.abs(left))}원 초과 사용됨`;
+
+  document.getElementById("monthend-preview").textContent=previewTxt;
   openModal("monthend");
 }
 function submitMonthEnd(){
   const now=nowKR();
   const monthStr=`${now.getFullYear()}년 ${now.getMonth()+1}월`;
-  const left=Math.max(0,S.living.balance);
-  const carryover=Math.floor(left*.7);
-  const bonusAdd=Math.floor(left*.3);
-  const newBal=carryover+1000000;
+  const left=S.living.balance;
+  const goal=S.living.goal;
+  const newBal=left+goal;
   const totalExp=S.expenses.reduce((a,e)=>a+e.amount,0);
 
-  // 결산 기록 저장
   if(!S.historyLog)S.historyLog=[];
   S.historyLog.push({
     month:monthStr,
     leftover:left,
-    carryover,
-    bonusAdded:bonusAdd,
+    carryover:left,
+    bonusAdded:0,
     newBalance:newBal,
     totalExp
   });
 
-  // 리셋
   S.living.balance=newBal;
-  S.bonus+=bonusAdd;
-  S.expenses=[];  // 지출내역 초기화
+  S.expenses=[];
 
   save();render();showFlash("월말정산 완료! 🎊");closeModal("monthend");
 }
@@ -661,6 +647,5 @@ function updateDday(){
 // ── init ──
 load();render();updateDday();
 </script>
-
 </body>
 </html>
